@@ -10,13 +10,13 @@ The first thing we need to do is work out the requests which are happening in yo
 
 We'll be working from the Network tool.
 
-![](/assets/edge-network-tool.png)
+![Edge network tool](/assets/edge-network-tool.png)
 
-With the Network tool open, navigate to Health > OneDrive Sync. This would have generated some requests we aren't interested in, so lets first clear those requests via the Clear button ![](/assets/edge-network-tool-clear.png).
+With the Network tool open, navigate to Health > OneDrive Sync. This would have generated some requests we aren't interested in, so lets first clear those requests via the Clear button ![clear button](/assets/edge-network-tool-clear.png).
 
 Select 'View devices which have sync errors', this will generate two requests in the Network tool.
 
-![](/assets/onedrive-sync-errors-requests.png)
+![requests](/assets/onedrive-sync-errors-requests.png)
 
 Select one of the requests in the Network Tool, and then select Headers. This will show some more information about the request. Find the request which has a Request Method of GET, right click this and select Copy > Copy as PowerShell.
 
