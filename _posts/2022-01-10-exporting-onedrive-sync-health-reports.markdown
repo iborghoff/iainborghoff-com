@@ -3,20 +3,20 @@ layout: post
 title:  "Exporting OneDrive Sync Health Reports"
 date:   2022-01-10 10:00:49 +0100
 ---
-Currently in preview via the Microsoft 365 Apps admin center (https://config.office.com/officeSettings/onedrive), OneDrive sync health reports allow you to see the sync status of all devices with in your tenant. 
+Currently in preview via the [Microsoft 365 Apps admin center](https://config.office.com/officeSettings/onedrive), OneDrive sync health reports allow you to see the sync status of all devices with in your tenant. 
 It's not possible (yet) to export this data via the admin center or an API, so we need to get a little creative if we want to export it.
 
 The first thing we need to do is work out the requests which are happening in your browser when you are accessing the admin center. You can see this via your browsers admin tools. I'm using Edge, so for me this is accessed via More Tools > Developer Tools (or Ctrl+Shift+I).
 
 We'll be working from the Network tool.
 
-(/assets/edge-network-tool.png)
+![](/assets/edge-network-tool.png)
 
-With the Network tool open, navigate to Health > OneDrive Sync. This would have generated some requests we aren't interested in, so lets first clear those requests via the Clear button (/assets/edge-network-tool-clear.png).
+With the Network tool open, navigate to Health > OneDrive Sync. This would have generated some requests we aren't interested in, so lets first clear those requests via the Clear button ![](/assets/edge-network-tool-clear.png).
 
 Select 'View devices which have sync errors', this will generate two requests in the Network tool.
 
-(/assets/onedrive-sync-errors-requests.png)
+![](/assets/onedrive-sync-errors-requests.png)
 
 Select one of the requests in the Network Tool, and then select Headers. This will show some more information about the request. Find the request which has a Request Method of GET, right click this and select Copy > Copy as PowerShell.
 
@@ -95,4 +95,4 @@ There are a couple of caveats to all of this:
 
 Unfortunately point 1 above is something I wasn't able to build a work around for, if you want to access the data like this then you'll need to generate the Bearer token manually via the admin center each time. But point 2 is possible to solve.
 
-If you want to see how I tackled it, then head over to my GitHub - https://github.com/iborghoff/EndpointManagement/tree/main/OneDrive. 
+If you want to see how I tackled it, then head over to my [GitHub](https://github.com/iborghoff/EndpointManagement/tree/main/OneDrive).
