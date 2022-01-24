@@ -1,1 +1,1 @@
-Repo for the www.iainborghoff.com website
+Repo for the iainborghoff.com website
