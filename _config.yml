@@ -31,7 +31,7 @@ github_username:  iborghoff
 author: Iain Borghoff
 
 # Build settings
-theme: jekyll-theme-tactile
+theme: jekyll-theme-midnight
 plugins:
   - jekyll-feed
 
