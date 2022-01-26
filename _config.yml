@@ -31,10 +31,9 @@ github_username:  iborghoff
 author: Iain Borghoff
 
 # Build settings
-theme: pages-themes/tactile@v0.2.0
+theme: tactile
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
