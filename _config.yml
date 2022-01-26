@@ -31,9 +31,10 @@ github_username:  iborghoff
 author: Iain Borghoff
 
 # Build settings
-theme: minima
+theme: pages-themes/tactile@v0.2.0
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
