@@ -31,7 +31,8 @@ github_username:  iborghoff
 author: Iain Borghoff
 
 # Build settings
-theme: minima
+# Removed Gem based minima theme
+# theme: minima
 plugins:
   - jekyll-feed
 
