@@ -1,0 +1,44 @@
+<aside class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="sidebar-info">
+        <!-- remote from template side bar 
+        <a href="/">
+            <span hidden>{{site.title}}
+                Header Image</span>
+            <img class="brand-photo" src="{{{site.url}}/{{site.header_image}}" alt="Photo of {{site.author}}"/>
+        </a>
+        -->
+        <h1 class="brand-title">
+            <a href="/">{{site.title}}</a>
+        </h1>
+        <h2 class="brand-tagline">{{site.description}}</h2>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="{{site.url}}">Home</a>
+                </li>
+                <!-- remove from template sidebar
+                <li class="nav-item">
+                    <a class="pure-button" href="{{site.url}}/notes">Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="{{site.url}}/journals">Journal</a>
+                </li>
+                -->
+                <!-- add twitter and github to sidebar menu items -->
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/{{site.twitter}}">
+                        <i class="fab fa-twitter"></i>
+                        <span class="md-display">Twitter</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/{{site.github}}">
+                        <i class="fab fa-github"></i>
+                        <span class="md-display">GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
