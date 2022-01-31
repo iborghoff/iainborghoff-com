@@ -6,15 +6,15 @@ layout: default
 
     <header class="post-header">
         <h2 class="post-title" itemprop="name headline">{{ page.title | escape }}</h2>
-        {%- include post-data.html -%}
+        {%- include journal-data.html -%}
     </header>
 
     <div articlebody" class="post-body itemprop=">
         {{ content }}
     </div>
-    <!-- remove template author include 
+
     {%- include author.html -%}
-    -->
+
     {%- if site.disqus.shortname -%}
         {%- include disqus_comments.html -%}
     {%- endif -%}

@@ -1,35 +1,42 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+<hr/>
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
+<footer class="footer">
+    <div class="pure-menu pure-menu-horizontal">
+        <ul>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="/">
+                    <i class="fas fa-home"></i>
+                    <span class="md-display">Home</span>
+                </a>
             </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://twitter.com/{{site.twitter}}">
+                    <i class="fab fa-twitter"></i>
+                    <span class="md-display">Twitter</span>
+                </a>
+            </li>
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://github.com/{{site.github}}">
+                    <i class="fab fa-github"></i>
+                    <span class="md-display">GitHub</span>
+                </a>
+            </li>
+            <!-- remove template email link from footer
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="mailto:{{site.email}}">
+                    <i class="fas fa-paper-plane"></i>
+                    <span class="md-display">E-mail</span>
+                </a>
+            </li>
+            -->
+            <!-- remove template source code link from footer
+            <li class="pure-menu-item">
+                <a class="pure-menu-link" href="https://github.com/{{site.repository}}">
+                    <i class="fas fa-code"></i>
+                    <span class="md-display">Source Code</span>
+                </a>
+            </li>
+            -->
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
-      </div>
     </div>
-
-  </div>
-
 </footer>

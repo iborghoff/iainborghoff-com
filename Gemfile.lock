@@ -273,7 +273,7 @@ GEM
     unf_ext (0.0.8)
     unicode-display_width (1.8.0)
     webrick (1.7.0)
-    zeitwerk (2.5.3)
+    zeitwerk (2.5.4)
 
 PLATFORMS
   x64-mingw-ucrt
@@ -281,6 +281,8 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.12)
+  jekyll-paginate
+  jekyll-seo-tag
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)

@@ -2,6 +2,9 @@
 layout: post
 title:  "Exporting OneDrive Sync Health Reports"
 date:   2022-01-10 10:00:49 +0100
+tags:
+  - OneDrive
+  - PowerShell
 ---
 Currently in preview via the [Microsoft 365 Apps admin center](https://config.office.com/officeSettings/onedrive), OneDrive sync health reports allow you to see the sync status of all devices with in your tenant. 
 It's not possible (yet) to export this data via the admin center or an API, so we need to get a little creative if we want to export it.
@@ -24,7 +27,7 @@ Select one of the requests in the Network Tool, and then select Headers. This wi
 
 This will give us the code below. 
 
-```powerhshell
+```powershell
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 $session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55"
 Invoke-WebRequest -UseBasicParsing -Uri "https://clients.config.office.net/odbhealth/v1.0/synchealth/reports?top=30&filter=cast(TotalErrorCount,%27Int32%27)+ne+0&orderby=UserName+asc" `
