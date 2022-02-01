@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Organized by Category
+title: Posts by Category
 permalink: /categories/
 content-type: eg
 ---
