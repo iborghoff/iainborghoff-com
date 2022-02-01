@@ -2,7 +2,7 @@
 layout: post
 title:  "Exporting OneDrive Sync Health Reports"
 date:   2022-01-10 10:00:49 +0100
-tags:
+categories:
   - OneDrive
   - PowerShell
 ---

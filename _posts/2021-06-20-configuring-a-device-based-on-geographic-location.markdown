@@ -2,8 +2,8 @@
 layout: post
 title:  "Configuring A Device Based On Geographic Location"
 date:   2021-06-20 13:55:49 +0100
-tags:
-  - Autopilot
+categories:
+  - Windows Autopilot
   - PowerShell
 ---
 I wanted to take Michael Niehaus’s [AutopilotBranding](https://github.com/mtniehaus/AutopilotBranding) script one step further and determine what settings and languages to apply to a device based on it’s location. But how would we be able to determine a devices location during provisioning?
