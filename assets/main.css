@@ -194,7 +194,8 @@ footer .pure-menu-link:hover {
 }
 
 .content {
-  padding: 2em 1em 0;
+  /* add extra 0 to end*/
+  padding: 2em 1em 0 0;
 }
 
 .post,
@@ -203,10 +204,7 @@ footer .pure-menu-link:hover {
 }
 
 .post-entry {
-  /* remove auto 
   margin: 0 auto;
-  */
-  margin: 0;
 }
 
 .post-entry h1,
