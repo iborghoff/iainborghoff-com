@@ -222,9 +222,8 @@ footer .pure-menu-link:hover {
 .post-body p,
 .post-body li {
   font-size: 16px;
-  /* remove left align on posts
-  text-align: justify;
-  */
+  /* align text on left instead of justify   */
+  text-align: left;
   line-height: 1.5;
 }
 
