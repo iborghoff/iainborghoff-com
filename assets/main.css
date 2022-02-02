@@ -202,9 +202,11 @@ footer .pure-menu-link:hover {
   padding-bottom: 2em;
 }
 
+/* remove margin to align posts to the left
 .post-entry {
   margin: 0 auto;
 }
+*/
 
 .post-entry h1,
 .post-entry h2,
@@ -222,8 +224,7 @@ footer .pure-menu-link:hover {
 .post-body p,
 .post-body li {
   font-size: 16px;
-  /* align text on left instead of justify   */
-  text-align: left;
+  text-align: justify;
   line-height: 1.5;
 }
 
