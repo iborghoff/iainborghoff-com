@@ -10,28 +10,28 @@ I wanted to take Michael Niehaus’s [AutopilotBranding](https://github.com/mtni
 
 Using PowerShell we could easily get a devices location:
 
-```powershell
+{% highlight powershell linenos %}
 PS:\Invoke-RestMethod -Uri "http://ip-api.com/json"
 
 country : United Kingdom
 countryCode : GB
 region : ENG
 regionName : England
-```
+{% endhighlight %}
 
 This works well, but then we are reliant on the API being available and not falling foul of any usage limitations (unless of course you pay for access). Another alternative, and the one I chose to go with, is to rely on the home location of the current Windows account. This is set when a user selects their region during OOBE and is easily accessed via the Get-WinHomeLocation command:
 
-```powershell
+{% highlight powershell linenos %}
 PS:\Get-WinHomeLocation
 
 GeoId HomeLocation
 ----- ------------
 242 United Kingdom
-```
+{% endhighlight %}
 
 Nice. Now we can use the Geo ID or the HomeLocation as a reference in our Config.xml:
 
-```xml
+{% highlight xml linenos %}
 <_242>
     <TimeZone>GMT Standard Time</TimeZone>
     <Language>Language-en-GB.xml</Language>
@@ -46,7 +46,7 @@ Nice. Now we can use the Geo ID or the HomeLocation as a reference in our Config
         <Feature>Language.TextToSpeech~~~en-GB~0.0.1.0</Feature>
     </AddFeatures>
 </_242>
-```
+{% endhighlight %}
 
 Why the underscore before the GeoID? Well XML does not support numbers as the name of an element and requires a character it does support to prefix the number.
 

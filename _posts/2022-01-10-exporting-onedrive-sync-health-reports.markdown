@@ -27,8 +27,8 @@ Select one of the requests in the Network Tool, and then select Headers. This wi
 
 This will give us the code below. 
 
-```powershell
-$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+{% highlight powershell linenos %}
+	$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 $session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36 Edg/97.0.1072.55"
 Invoke-WebRequest -UseBasicParsing -Uri "https://clients.config.office.net/odbhealth/v1.0/synchealth/reports?top=30&filter=cast(TotalErrorCount,%27Int32%27)+ne+0&orderby=UserName+asc" `
 -WebSession $session `
@@ -52,10 +52,11 @@ Invoke-WebRequest -UseBasicParsing -Uri "https://clients.config.office.net/odbhe
   "accept-encoding"="gzip, deflate, br"
   "accept-language"="en-US,en;q=0.9"
 }
-```
+{% endhighlight %}
+
 I find Invoke-RestMethod much easier to work with, so let's update this code to the below.
 
-```powershell
+{% highlight powershell linenos %}
 $results = Invoke-RestMethod -Method Get -Uri "https://clients.config.office.net/odbhealth/v1.0/synchealth/reports?top=30&filter=cast(TotalErrorCount,%27Int32%27)+ne+0&orderby=UserName+asc" `
 -Headers @{
   "authority"                 = "clients.config.office.net"
@@ -76,18 +77,18 @@ $results = Invoke-RestMethod -Method Get -Uri "https://clients.config.office.net
   "accept-encoding"           = "gzip, deflate, br"
   "accept-language"           = "en-US,en;q=0.9"
 }
-```
+{% endhighlight %}
 
 The $results variable contains an object we can now easily work with, for example $retults.reports will return each result. Here's an example.
 
-```powershell
+{% highlight powershell linenos %}
 type                         : odb
 schemaVersion                : 1.0
 oneDriveDeviceId             : 123456
 userName                     : Blogs, Joe
 userEmail                    : joe.blogs@company.com
 deviceName                   : ADEVICENAME
-```
+{% endhighlight %}
 
 There are a couple of caveats to all of this:
 
