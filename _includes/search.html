@@ -1,44 +1,39 @@
-<div id="search">
-    <label>
-        <span class="search-icon">🔎</span>
-        <input autocomplete="off" id="search-input" oninput="changeResultContainerDisp(this.value)" placeholder="Search all posts..." type="text"/>
-    </label>
+{% if site.post_search %}
 
-    <ul id="results-container" style="display: none"></ul>
-</div>
-<script src="/assets/simple-jekyll-search.js"></script>
-<script>
-    function changeResultContainerDisp(val) {
-        if (val) {
-            document
-                .getElementById("results-container")
-                .style
-                .display = "block";
-            document.getElementById("search-input").addEventListener("blur", function () {
-                document.addEventListener("click", function (event) {
-                    var isClickInside = document.getElementById("results-container").contains(event.target);
-                    if (! isClickInside) {
-                        document
-                            .getElementById("results-container")
-                            .style
-                            .display = "none";
-                    }
-                })
-            })
-        } else {
-            document
-                .getElementById("results-container")
-                .style
-                .display = "none";
-        }
-    }
+<div id="beautifuljekyll-search-overlay">
+
+  <div id="nav-search-exit" title="Exit search">✕</div>
+  <input type="text" id="nav-search-input" placeholder="Search">
+  <ul id="search-results-container"></ul>
+  
+  <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    var searchjson = '[ \
+      {% for post in site.posts %} \
+        { \
+          "title"    : "{% if post.title != "" %}{{ post.title | strip_html | escape }}{% else %}{{ post.excerpt | strip_html | escape | strip }}{%endif%}", \
+          "category" : "{{ post.tags | join: \', \' }}", \
+          "url"      : "{{ site.baseurl }}{{ post.url }}", \
+          "date"     : "{{ post.date | date: "%B %e, %Y" | default: "January 1, 1970" }}" \
+        }, \
+      {% endfor %} \
+      {% for page in site.html_pages %}{% if page.title != "{title}" and page.title != "404 - Page not found" %} \
+        { \
+          "title"    : "{% if page.title != "" %}{{ page.title | strip_html | escape }}{% else %}{{ page.excerpt | strip_html | escape | strip }}{% endif %}", \
+          "category" : "{% if page.tags %}{{ page.tags | join: \', \' }}{% else %}page{% endif %}", \
+          "url"      : "{{ site.baseurl }}{{ page.url }}", \
+          "date"     : "{{ page.date | date: '%B %e, %Y' | default: "January 1, 1970" }}" \
+        }{% unless forloop.last %},{% endunless %} \
+      {% endif %}{% endfor %} \
+    ]';
+    searchjson = JSON.parse(searchjson);
+
     var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById("search-input"),
-        resultsContainer: document.getElementById("results-container"),
-        json: "/search.json",
-        searchResultTemplate: "<li class='search_res' style='list-style: none;'><a href='{{ site.url }}{url}' color: #555555;'><p><strong>></strong> {title}</p></a></li>",
-        noResultsText: "No results found. Try another search.",
-        fuzzy: false,
-        limit: 5
-    })
-</script>
+      searchInput: document.getElementById('nav-search-input'),
+      resultsContainer: document.getElementById('search-results-container'),
+      json: searchjson
+    });
+  </script>
+</div>
+
+{% endif %}

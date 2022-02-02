@@ -2,15 +2,15 @@
 layout: post
 title:  "Configuring A Device Based On Geographic Location"
 date:   2021-06-20 13:55:49 +0100
-categories:
-  - Windows Autopilot
+tags:
+  - Windows AutoPilot
   - PowerShell
 ---
 I wanted to take Michael Niehaus’s [AutopilotBranding](https://github.com/mtniehaus/AutopilotBranding) script one step further and determine what settings and languages to apply to a device based on it’s location. But how would we be able to determine a devices location during provisioning?
 
 Using PowerShell we could easily get a devices location:
 
-{% highlight powershell linenos %}
+{% highlight powershell %}
 PS:\Invoke-RestMethod -Uri "http://ip-api.com/json"
 
 country : United Kingdom
@@ -21,7 +21,7 @@ regionName : England
 
 This works well, but then we are reliant on the API being available and not falling foul of any usage limitations (unless of course you pay for access). Another alternative, and the one I chose to go with, is to rely on the home location of the current Windows account. This is set when a user selects their region during OOBE and is easily accessed via the Get-WinHomeLocation command:
 
-{% highlight powershell linenos %}
+{% highlight powershell %}
 PS:\Get-WinHomeLocation
 
 GeoId HomeLocation
@@ -31,7 +31,7 @@ GeoId HomeLocation
 
 Nice. Now we can use the Geo ID or the HomeLocation as a reference in our Config.xml:
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <_242>
     <TimeZone>GMT Standard Time</TimeZone>
     <Language>Language-en-GB.xml</Language>
