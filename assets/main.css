@@ -203,7 +203,10 @@ footer .pure-menu-link:hover {
 }
 
 .post-entry {
+  /* remove auto 
   margin: 0 auto;
+  */
+  margin: 0;
 }
 
 .post-entry h1,
