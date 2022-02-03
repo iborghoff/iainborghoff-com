@@ -23,7 +23,8 @@ Select 'View devices which have sync errors', this will generate two requests in
 
 Select one of the requests in the Network Tool, and then select Headers. This will show some more information about the request. Find the request which has a Request Method of GET, right click this and select Copy > Copy as PowerShell.
 
-*Please note that I'll replace the Bearer token with 123456 and removed the SID's in these examples, so your code will look a little different.*
+{: .box-note} 
+I'll replace the Bearer token with 123456 and removed the SID's in these examples, so your code will look a little different.
 
 This will give us the code below. 
 
