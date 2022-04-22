@@ -84,7 +84,7 @@ Now unmount the two WIM files:
   <li>Dism /unmount-image /Mountdir:C:\AutomationWIM\mnt /commit</li>
 </ol>
 
-Great! Now we have our updated OSDCloud WIM file with we can push it out to our devices and replace the standard one under C:\boot\altiris\iso\sources. For this I created a Software Release in ITMS and uploaded my custom boot.wim and an install script, a policy then delivers this to each device. The install script will check the file hash of the current boot.wim file, and if it doesn't match the file hash our our new boot.wim file it will replace it.
+Great! Now we have our updated OSDCloud WIM file with we can push it out to our devices and replace the standard one under C:\boot\altiris\iso\sources. For this I created a Software Release in ITMS and uploaded my custom boot.wim and an install script, a policy then delivers this to each device. The install script will check the file hash of the current boot.wim file, and if it doesn't match the file hash of the new boot.wim file it will replace it.
 
 Below is the install script (be sure to use the file hash you got earlier for your automation folder boot.wim file). The policy which delivers this to devices will download it to C:\temp\OSDCloudAutomation, the install script will then copy it from here to the correct location and delete it from temp. The registry values the script creates are used as a detection rule for the policy.
 
