@@ -88,7 +88,7 @@ Great! Now we have our updated OSDCloud WIM file with we can push it out to our 
 
 Below is the install script (be sure to use the file hash you got earlier for your automation folder boot.wim file). The policy which delivers this to devices will download it to C:\temp\OSDCloudAutomation, the install script will then copy it from here to the correct location and delete it from temp. The registry values the script creates are used for as a detection rule for the policy.
 
-{% hightlight PowerShell %}
+{% highlight PowerShell %}
 # Create logs folder
 if (-not (Test-Path "$($env:ProgramData)\OSDCloudAutomation")) {
     New-Item -Path $env:ProgramData -Name 'OSDCloudAutomation' -ItemType 'directory' -Force
