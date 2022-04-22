@@ -44,17 +44,17 @@ Mount the two WIM files from CMD line:
   <li>Dism /mount-image /imagefile:C:\AutomationWIM\boot.wim /Index:1 /Mountdir:C:\AutomationWIM\mnt</li>
 </ol>
 
-Now the two WIM's are mounted, we will copy what we need from the mounted automation folder WIM to the mounted OSDCloud WIM, and edit the starnet.cmd file:
+Now the two WIM's are mounted, we will copy what we need from the mounted automation folder WIM to the mounted OSDCloud WIM, and edit the startutl.bat file:
 <ol>
   <li>Copy the folder C:\AutomationWIM\mnt\Program Files\Symantec to C:\OSDCloudWIM\mnt\Program Files</li>
   <li>Copy the folder C:\AutomationWIM\mnt\Program Files\Altiris to C:\OSDCloudWIM\mnt\Program Files</li>
   <li>Copy the file C:\AutomationWIM\mnt\Windows\System32\startnet.cmd to C:\OSDCloudWIM\mnt\Windows\System32\startnet.cmd (you can overwrite the file)</li>
-  <li>Copy the file C:\AutomationWIM\mnt\Windows\System32\startutl.cmd to C:\OSDCloudWIM\mnt\Windows\System32\startutl.cmd</li>
+  <li>Copy the file C:\AutomationWIM\mnt\Windows\System32\startutl.bat to C:\OSDCloudWIM\mnt\Windows\System32\startutl.bat</li>
   <li>Copy all the files (NOT folders) from C:\AutomationWIM\mnt to C:\OSDCloudWIM\mnt</li>
-  <li>Open the C:\OSDCloudWIM\mnt\Windows\System32\startutl.cmd file and make the changes below</li>
+  <li>Open the C:\OSDCloudWIM\mnt\Windows\System32\startutl.bat file and make the changes below</li>
 </ol>
 
-From the 'REM net-start=Initialize WinPE and the network' section (line 634), remove everything from the section and replace it with the below. Save the file after making the changes.
+From the 'REM net-start=Initialize WinPE and the network' section (line 634) remove everything and replace it with the below. Save the file after making the changes.
 
 {% highlight batch %}
 :net-start
@@ -86,7 +86,7 @@ Now unmount the two WIM files:
 
 Great! Now we have our updated OSDCloud WIM file with we can push it out to our devices and replace the standard one under C:\boot\altiris\iso\sources. For this I created a Software Release in ITMS and uploaded my custom boot.wim and an install script, a policy then delivers this to each device. The install script will check the file hash of the current boot.wim file, and if it doesn't match the file hash our our new boot.wim file it will replace it.
 
-Below is the install script (be sure to use the file hash you got earlier for your automation folder boot.wim file). The policy which delivers this to devices will download it to C:\temp\OSDCloudAutomation, the install script will then copy it from here to the correct location and delete it from temp. The registry values the script creates are used for as a detection rule for the policy.
+Below is the install script (be sure to use the file hash you got earlier for your automation folder boot.wim file). The policy which delivers this to devices will download it to C:\temp\OSDCloudAutomation, the install script will then copy it from here to the correct location and delete it from temp. The registry values the script creates are used as a detection rule for the policy.
 
 {% highlight PowerShell %}
 # Create logs folder
@@ -166,3 +166,5 @@ catch {
 
 Stop-Transcript
 {% endhighlight %}
+
+Once a device has installed the OSDCloud WIM file it will then use this when booting to the automation folder :)
