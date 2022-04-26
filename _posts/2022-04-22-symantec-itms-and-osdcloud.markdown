@@ -26,7 +26,7 @@ How do you do this? First we'll need two files:
 </ol>
 
 {: .box-note} 
-Wait! Before you move on get the file hash of the boot.wim from your Automation Folder, you'll need this later on. You can use the PowerShell command Get-FileHash for this.
+Before you move on, get the file hash of the boot.wim from your Automation Folder. You'll need this later on. You can use the PowerShell command Get-FileHash for this.
 
 I won't go into the details about creating your OSDCloud media, you can follow the instructions on [David's site](https://www.osdcloud.com). We'll need the OSDCloud_NoPrompt.iso so be sure to create that. I also won't go into details about setting up Automation Folders in your environment, Broadcom has useful documents to help you there.
 
@@ -105,11 +105,11 @@ Write-Host "OSDCloudAutomation version = $version"
 # OSDCloudAutomation boot.wim hash
 $osdcloudhash = 'replace with hash of OSDCloud boot.wim'
 Write-Host "OSDCloudAutomation boot.wim hash = $osdcloudhash"
-# ====== End section to edit =======
 
 # Default Automation Folder boot.wim hash
 $hash = 'replace with original automation folder boot.wim hash'
 Write-Host "Default Automation Folder boot.wim hash = $hash"
+# ====== End section to edit =======
 
 # Get current boot.wim hash
 try {
