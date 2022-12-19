@@ -6,6 +6,9 @@ tags:
   - OneDrive
   - PowerShell
 ---
+{: .box-note} 
+The original script linked in this post will no longer return data due to a change in response from the site. I've committed a new [function](https://github.com/iborghoff/EndpointManagement/blob/main/OneDrive/Get-OneDriveSyncReport.ps1) to instead pull data from the main devices report, though unfortunately this won't return error messages.
+
 Currently in preview via the [Microsoft 365 Apps admin center](https://config.office.com/officeSettings/onedrive), OneDrive sync health reports allow you to see the sync status of all devices with in your tenant. 
 It's not possible (yet) to export this data via the admin center or an API, so we need to get a little creative if we want to export it.
 
